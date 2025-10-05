@@ -7,7 +7,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.20">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\MovieStore.Common\MovieStore.Common.csproj" />
+    <ProjectReference Include="..\MovieStore.Data\MovieStore.Data.csproj" />
     <ProjectReference Include="..\MovieStore.Web.ViewModel\MovieStore.Web.ViewModel.csproj" />
   </ItemGroup>
 

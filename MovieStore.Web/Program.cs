@@ -1,3 +1,7 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using MovieStore.Data;
+
 namespace MovieStore.Web
 {
     public class Program
@@ -5,8 +9,14 @@ namespace MovieStore.Web
         public static void Main(string[] args)
         {
             WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
-
+            string connectionString = builder.Configuration.GetConnectionString("SQLServer");
             // Add services to the container.
+
+             builder.Services.AddDbContext<MovieStoreDbContext>(options =>
+             {
+                 options.UseSqlServer(connectionString);
+             });
+
             builder.Services.AddControllersWithViews();
 
             WebApplication app = builder.Build();
